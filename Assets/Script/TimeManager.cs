@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class TimeManager : MonoBehaviour
     public EnemiesManager em;
     public UnityStandardAssets._2D.PlatformerCharacter2D pe;
     public float time;
+    public Text text;
+    public bool start = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +29,24 @@ public class TimeManager : MonoBehaviour
             pe.enabled = true;
             Destroy(startanim.gameObject);
             startanim = null;
+            start = true;
 
         }
 
         if(Input.GetButtonDown("restart")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        if(start){
         time -= Time.deltaTime;
+        text.text = ((int)time).ToString();
+        Debug.Log((int)time);
+        if(time < 0.0f){
+            start = false;
+            em.enabled = false;
+            pe.enabled = false;
+        }
+
+
+        }
     }
 }
