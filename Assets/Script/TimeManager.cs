@@ -8,7 +8,7 @@ public class TimeManager : MonoBehaviour
 {
     public Animator startanim;
     public EnemiesManager em;
-    public UnityStandardAssets._2D.PlatformerCharacter2D pe;
+    public UnityStandardAssets._2D.Platformer2DUserControl pe;
     public float time;
     public Text text;
     public bool start = false;
@@ -22,7 +22,7 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startanim!= null && startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
+        if (startanim != null && startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
         {
             //start game
             em.enabled = true;
@@ -33,18 +33,21 @@ public class TimeManager : MonoBehaviour
 
         }
 
-        if(Input.GetButtonDown("restart")){
+        if (Input.GetButtonDown("Restart"))
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if(start){
-        time -= Time.deltaTime;
-        text.text = ((int)time).ToString();
-        Debug.Log((int)time);
-        if(time < 0.0f){
-            start = false;
-            em.enabled = false;
-            pe.enabled = false;
-        }
+        if (start)
+        {
+            time -= Time.deltaTime;
+            text.text = ((int)time).ToString();
+            Debug.Log((int)time);
+            if (time < 0.0f)
+            {
+                start = false;
+                em.enabled = false;
+                pe.enabled = false;
+            }
 
 
         }
