@@ -6,7 +6,7 @@ public class Spot : MonoBehaviour
 {
     public bool isRepairing;
 
-    public enum Status { level1, level2, level3 }
+    public enum Status { level1, level2, level3, done }
 
     public Status status = Status.level1;
 
@@ -14,7 +14,7 @@ public class Spot : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && status != Status.done)
         {
             if (!isRepairing)
             {
@@ -26,7 +26,7 @@ public class Spot : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && status != Status.done)
         {
             if (isRepairing)
             {

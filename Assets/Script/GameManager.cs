@@ -6,6 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public RepairingController repairController;
     public bool canRepair;
+
+    public Animator _anim;
+
+    public int score;
+
+    public int currentSpotNumber;
     #region Singleton
 
     public static GameManager _thisInstance;
@@ -36,17 +42,26 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    private void Start()
+    {
+        CorrectButtonManager.Get().onCorrectButtonDelegate += ButtonCorrect;
+    }
+
     public void RepairGameplay(Spot spot)
     {
         Debug.Log("Enter spot:" + spot.spotNumber);
 
         repairController.SetSpot(spot);
+        currentSpotNumber = spot.spotNumber;
         canRepair = true;
     }
 
     public void RepairExit()
     {
-        Debug.Log("Exit spot");
+        Debug.Log("Exit Repair");
+        _anim.SetBool("isRepairing", false);
+        _anim.SetBool("isRepairingTop", false);
+        _anim.SetBool("correctButton", false);
 
         repairController.StopRepair();
         canRepair = false;
@@ -58,9 +73,25 @@ public class GameManager : MonoBehaviour
         {
             if (canRepair)
             {
+                canRepair = false;
+                if (currentSpotNumber == 0 || currentSpotNumber == 3)
+                {
+                    _anim.SetBool("isRepairing", true);
+                }
+                else
+                {
+                    _anim.SetBool("isRepairingTop", true);
+                }
                 Debug.Log("Repair Pressed");
                 repairController.StartRepair();
+
             }
         }
+    }
+
+    public void ButtonCorrect()
+    {
+        _anim.SetBool("correctButton", true);
+        score += 50;
     }
 }
