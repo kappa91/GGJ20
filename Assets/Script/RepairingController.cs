@@ -92,7 +92,8 @@ public class RepairingController : MonoBehaviour
         repairingBox.DOScale(0, .2f);
         CorrectButtonManager.Get().isPlaying = false;
         charaController.lockControl = false;
-        currentSpot.isRepairing = false;
+        if (currentSpot != null)
+            currentSpot.isRepairing = false;
         foreach (ButtonInfo go in FindObjectsOfType<ButtonInfo>())
         {
             Destroy(go.gameObject);

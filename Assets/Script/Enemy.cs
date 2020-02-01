@@ -8,11 +8,7 @@ public class Enemy : MonoBehaviour
     public float moveY;
     public float time;
     private bool move = true;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    bool isDead;
 
     // Update is called once per frame
     void Update()
@@ -29,19 +25,53 @@ public class Enemy : MonoBehaviour
 
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (move && other.gameObject.tag.Equals("Player"))
+        {
+            //    //DAMAGE TO PLAYER
+            //    GameManager.Get()._anim.SetTrigger("damageTrigger");
+            //    GameManager.Get().RepairExit();
+            //    move = false;
+            //    //animazione e destroy
+            //    Destroy(gameObject);
+            if (!isDead)
+            {
+                if (GameManager.Get().isAttack)
+                {
+                    isDead = true;
+                    StartCoroutine(WaitToDestroy());
+                }
+            }
+        }
+    }
+
+    IEnumerator WaitToDestroy()
+    {
+        yield return new WaitForSeconds(.25f);
+        Destroy(gameObject);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        //if (move && other.gameObject.tag.Equals("Player"))
-        //{
-        //    //DAMAGE TO PLAYER
-        //    GameManager.Get()._anim.SetTrigger("damageTrigger");
-        //    GameManager.Get().RepairExit();
-        //    move = false;
-        //    //animazione e destroy
-        //    Destroy(gameObject);
-        //}
+        if (move && other.gameObject.tag.Equals("Player"))
+        {
+            //    //DAMAGE TO PLAYER
+            //    GameManager.Get()._anim.SetTrigger("damageTrigger");
+            //    GameManager.Get().RepairExit();
+            //    move = false;
+            //    //animazione e destroy
+            //    Destroy(gameObject);
+            if (!isDead)
+            {
+                if (GameManager.Get().isAttack)
+                {
+                    isDead = true;
+                    StartCoroutine(WaitToDestroy());
+                }
+            }
+        }
         //else
         if (move && other.gameObject.tag.Equals("Car"))
         {

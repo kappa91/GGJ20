@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
         canRepair = false;
     }
 
+    public bool isAttack;
+
     private void Update()
     {
         if (Input.GetButtonDown("Repair"))
@@ -87,6 +89,22 @@ public class GameManager : MonoBehaviour
 
             }
         }
+
+        if (Input.GetAxisRaw("Attack") == 1)
+        {
+            if (!isAttack)
+            {
+                _anim.SetTrigger("attack");
+                RepairExit();
+                isAttack = true;
+            }
+        }
+        else if (Input.GetAxisRaw("Attack") == -1)
+        {
+            isAttack = false;
+        }
+
+
     }
 
     public void ButtonCorrect()
