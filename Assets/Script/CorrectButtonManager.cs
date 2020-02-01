@@ -10,6 +10,8 @@ public class CorrectButtonManager : MonoBehaviour
     public delegate void OnCorrectButton();
     public OnCorrectButton onCorrectButtonDelegate;
 
+    public GameObject correctFeedback, wrongFeedback;
+
     #region Singleton
 
     public static CorrectButtonManager _thisInstance;
@@ -47,11 +49,6 @@ public class CorrectButtonManager : MonoBehaviour
 
     private void Update()
     {
-        //debug
-        if (isPlaying && currentButton != null)
-        {
-            Debug.Log(currentButton.buttonNumber);
-        }
 
         if (isPlaying)
         {
@@ -60,10 +57,12 @@ public class CorrectButtonManager : MonoBehaviour
                 Destroy(currentButton.gameObject);
                 currentButton = null;
                 onCorrectButtonDelegate?.Invoke();
+                correctFeedback.SetActive(true);
             }
             else if (Input.anyKeyDown)
             {
-                //GameManager.Get().RepairExit();
+                GameManager.Get().RepairExit();
+                wrongFeedback.SetActive(true);
             }
         }
     }

@@ -1,19 +1,15 @@
 fileFormatVersion: 2
-guid: d4e409f4e42f042eebaca7a6cd9b2987
+guid: a801013eda2384fd6aa67cd0a5c00f77
 TextureImporter:
   fileIDToRecycleName:
-    21300000: car_states (1)_0
-    21300002: car_states (1)_1
-    21300004: car_states (1)_2
-    21300006: car_states (1)_3
-    21300008: car_states (1)_4
-    21300010: car_states (1)_5
-    21300012: car_states (1)_6
-    21300014: car_states (1)_7
-    21300016: car_states (1)_8
-    21300018: car_states (1)_9
-    21300020: car_states (1)_10
-    21300022: car_states (1)_11
+    21300000: damage (1)_0
+    21300002: damage (1)_1
+    21300004: damage (1)_2
+    21300006: damage (1)_3
+    21300008: damage (1)_4
+    21300010: damage (1)_5
+    21300012: damage (1)_6
+    21300014: damage (1)_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -118,13 +114,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: car_states (1)_0
+      name: damage (1)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 239
-        width: 64
-        height: 80
+        y: 0
+        width: 45
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,19 +128,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5de50363d60134c7a81817933098a52f
+      spriteID: 1c2a52506b43144d980a1693ff147eb9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car_states (1)_1
+      name: damage (1)_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 239.25
-        width: 64
-        height: 79.75
+        x: 45
+        y: 0
+        width: 45
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,19 +148,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffc14a54930dc46fba0b831b7f434a73
+      spriteID: db1c9faab31c04d8f804d91043912b03
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car_states (1)_2
+      name: damage (1)_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 239.25
-        width: 64
-        height: 79.75
+        x: 90
+        y: 0
+        width: 45
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,19 +168,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eeb9168c84bf846749c8b05930e3553b
+      spriteID: d1a387069525c48f3bc46703a0b36536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car_states (1)_3
+      name: damage (1)_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160.25
-        width: 64
-        height: 79.75
+        x: 135
+        y: 0
+        width: 45
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,19 +188,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 800caa585c79e4b8b855d318e1847699
+      spriteID: 96a26416cdcbc4d5fbf3cd982693c509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car_states (1)_4
+      name: damage (1)_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 160.25
-        width: 64
-        height: 79.75
+        x: 180
+        y: 0
+        width: 45
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,19 +208,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d92e38b1a58914271899bc177af062de
+      spriteID: aaf961828b2cf4d5fb84c965ec1b6e96
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car_states (1)_5
+      name: damage (1)_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 160.25
-        width: 64
-        height: 79.75
+        x: 225
+        y: 0
+        width: 45
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,19 +228,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec58e535272c24893bf38695c9555098
+      spriteID: c884cfc58ad4e4ca88763fd9dfef987b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car_states (1)_6
+      name: damage (1)_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 81.25
-        width: 64
-        height: 79.75
+        x: 270
+        y: 0
+        width: 45
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,19 +248,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 687c55637f37544ecacadd3a2861fc15
+      spriteID: 6e8a39cd014324e68959a7e075a46a57
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car_states (1)_7
+      name: damage (1)_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 81.25
-        width: 64
-        height: 79.75
+        x: 315
+        y: 0
+        width: 45
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,87 +268,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 063a9eccb18264085bf25258aa7a009b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: car_states (1)_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 81
-        width: 64
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2de41a6fb4c04950ae49d508357a901
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: car_states (1)_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2.25
-        width: 64
-        height: 79.75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f7699cc26f49401d93d9fe64e744c4f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: car_states (1)_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 2.25
-        width: 64
-        height: 79.75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6a7755d8b1c44a99a79a33511b0c6c4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: car_states (1)_11
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 2.25
-        width: 64
-        height: 79.75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e3bc1bd78ffa4e5fab3a091f491a928
+      spriteID: d4ce0f189303b4678a9470728946a08f
       vertices: []
       indices: 
       edges: []
@@ -360,7 +276,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3ca5f245797054afb98c905339b0f186
+    spriteID: 754d3b2d7896748d4a244aa98434b4e1
     vertices: []
     indices: 
     edges: []

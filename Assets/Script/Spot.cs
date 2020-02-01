@@ -14,12 +14,38 @@ public class Spot : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && status != Status.done)
+        if (collision.tag == "Player")
         {
-            if (!isRepairing)
+            if (status != Status.done)
             {
-                Debug.Log("Repairing");
-                GameManager.Get().RepairGameplay(this);
+                if (!isRepairing)
+                {
+                    Debug.Log("Repairing");
+                    GameManager.Get().RepairGameplay(this);
+                }
+            }
+            else
+            {
+                GameManager.Get().currentSpotNumber = spotNumber;
+            }
+        }
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            if (status != Status.done)
+            {
+                if (!isRepairing)
+                {
+                    Debug.Log("Repairing");
+                    GameManager.Get().RepairGameplay(this);
+                }
+            }
+            else
+            {
+                GameManager.Get().currentSpotNumber = spotNumber;
             }
         }
     }
@@ -28,11 +54,9 @@ public class Spot : MonoBehaviour
     {
         if (collision.tag == "Player" && status != Status.done)
         {
-            if (isRepairing)
-            {
-                isRepairing = false;
-                GameManager.Get().RepairExit();
-            }
+
+            isRepairing = false;
+            GameManager.Get().RepairExit();
         }
     }
 }

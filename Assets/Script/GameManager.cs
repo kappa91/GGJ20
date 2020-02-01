@@ -91,7 +91,8 @@ public class GameManager : MonoBehaviour
 
     public void ButtonCorrect()
     {
-        _anim.SetBool("correctButton", true);
+        _anim.SetTrigger("correctButtonTrigger");
+
         score += 50;
     }
 }

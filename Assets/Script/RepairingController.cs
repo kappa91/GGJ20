@@ -16,6 +16,7 @@ public class RepairingController : MonoBehaviour
 
     public float spawnRate;
     float timer;
+    public int counterButton;
 
     Spot currentSpot;
 
@@ -30,19 +31,59 @@ public class RepairingController : MonoBehaviour
     public Sprite[] carLevel1;
     public Sprite[] carLevel2;
     public Sprite[] carLevel3;
+    public Sprite[] carLevel4;
 
+    #region Singleton
+
+    public static RepairingController _thisInstance;
+
+    public static RepairingController Get()
+    {
+        if (_thisInstance == null)
+        {
+            GameObject newGameObject = new GameObject("RepairingController");
+            _thisInstance = newGameObject.AddComponent<RepairingController>();
+        }
+
+        return _thisInstance;
+    }
+
+    void Awake()
+    {
+        if (_thisInstance == null)
+        {
+            _thisInstance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
+    }
+
+    #endregion
+
+    private void Start()
+    {
+        CorrectButtonManager.Get().onCorrectButtonDelegate += CorrectButton;
+    }
 
     public void SetSpot(Spot spot)
     {
         currentSpot = spot;
     }
 
+    void CorrectButton()
+    {
+        counterButton++;
+    }
+
     public void StartRepair()
     {
-        repairingBox.DOScale(1, .2f);
+        repairingBox.DOScale(1, .2f).OnComplete(() => CorrectButtonManager.Get().isPlaying = true);
         currentSpot.isRepairing = true;
         charaController.lockControl = true;
-        SelectLevel();
+        SelectLevel(currentSpot);
         StartCoroutine(GenerateRepairSequence());
     }
 
@@ -51,6 +92,7 @@ public class RepairingController : MonoBehaviour
         repairingBox.DOScale(0, .2f);
         CorrectButtonManager.Get().isPlaying = false;
         charaController.lockControl = false;
+        currentSpot.isRepairing = false;
         foreach (ButtonInfo go in FindObjectsOfType<ButtonInfo>())
         {
             Destroy(go.gameObject);
@@ -61,30 +103,20 @@ public class RepairingController : MonoBehaviour
     {
         timer = 0;
         SpawnButton();
-        CorrectButtonManager.Get().isPlaying = true;
-        int counter = 1;
+        counterButton = 0;
         while (currentSpot.isRepairing)
         {
-            if (counter == buttonNumber)
+            if (counterButton == buttonNumber)
             {
-                counter = 0;
-                if (currentSpot.status == Spot.Status.level3)
-                {
-                    GameManager.Get().RepairExit();
-                    currentSpot.status = Spot.Status.done;
-                }
-                else
-                {
-                    currentSpot.status++;
-                    SelectLevel();
-                }
+                counterButton = 0;
+                currentSpot.status++;
+                SelectLevel(currentSpot);
             }
             timer += Time.deltaTime;
             if (timer > spawnRate)
             {
                 timer = 0;
                 SpawnButton();
-                counter++;
             }
             yield return null;
         }
@@ -95,8 +127,8 @@ public class RepairingController : MonoBehaviour
     void SpawnButton()
     {
         GameObject buttonRepair = GameObject.Instantiate(buttonPrefab, spawnPoint);
-        buttonRepair.GetComponent<ButtonInfo>().ButtonSetup(buttonNumberCode[Random.Range(0, buttonNumberCode.Length - 1)]);
-        buttonRepair.GetComponent<RectTransform>().DOLocalMoveX(173, speed).SetEase(Ease.InSine).OnComplete(
+        buttonRepair.GetComponent<ButtonInfo>().ButtonSetup(buttonNumberCode[Random.Range(0, buttonNumberCode.Length)]);
+        buttonRepair.GetComponent<RectTransform>().DOLocalMoveX(400, speed).OnComplete(
             () =>
             {
                 Destroy(buttonRepair);
@@ -104,24 +136,28 @@ public class RepairingController : MonoBehaviour
             );
     }
 
-    void SelectLevel()
+    public void SelectLevel(Spot spot)
     {
-        switch (currentSpot.status)
+        switch (spot.status)
         {
             case Spot.Status.level1:
                 speed = speedLevel1;
                 buttonNumber = buttonNumberLevel1;
-                ChangeSpriteCar(currentSpot.spotNumber, carLevel1[currentSpot.spotNumber]);
+                ChangeSpriteCar(spot.spotNumber, carLevel1[spot.spotNumber]);
                 break;
             case Spot.Status.level2:
                 speed = speedLevel2;
                 buttonNumber = buttonNumberLevel2;
-                ChangeSpriteCar(currentSpot.spotNumber, carLevel2[currentSpot.spotNumber]);
+                ChangeSpriteCar(spot.spotNumber, carLevel2[spot.spotNumber]);
                 break;
             case Spot.Status.level3:
                 speed = speedLevel3;
                 buttonNumber = buttonNumberLevel3;
-                ChangeSpriteCar(currentSpot.spotNumber, carLevel3[currentSpot.spotNumber]);
+                ChangeSpriteCar(spot.spotNumber, carLevel3[spot.spotNumber]);
+                break;
+            case Spot.Status.done:
+                GameManager.Get().RepairExit();
+                ChangeSpriteCar(spot.spotNumber, carLevel4[spot.spotNumber]);
                 break;
         }
     }
