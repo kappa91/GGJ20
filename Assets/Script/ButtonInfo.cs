@@ -57,7 +57,7 @@ public class ButtonInfo : MonoBehaviour
     {
         if (!isEntered)
         {
-            if (rect.localPosition.x >= 145 && rect.localPosition.x <= 165)
+            if (rect.localPosition.x >= 142 && rect.localPosition.x <= 165)
             {
                 CorrectButtonManager.Get().OnButtonEnter(this);
                 isEntered = true;

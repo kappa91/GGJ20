@@ -33,16 +33,17 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (move && other.gameObject.tag.Equals("Player"))
-        {
-            //DAMAGE TO PLAYER
-            GameManager.Get()._anim.SetTrigger("damageTrigger");
-            GameManager.Get().RepairExit();
-            move = false;
-            //animazione e destroy
-            Destroy(gameObject);
-        }
-        else if (move && other.gameObject.tag.Equals("Car"))
+        //if (move && other.gameObject.tag.Equals("Player"))
+        //{
+        //    //DAMAGE TO PLAYER
+        //    GameManager.Get()._anim.SetTrigger("damageTrigger");
+        //    GameManager.Get().RepairExit();
+        //    move = false;
+        //    //animazione e destroy
+        //    Destroy(gameObject);
+        //}
+        //else
+        if (move && other.gameObject.tag.Equals("Car"))
         {
             //DAMAGE TO CAR
             move = false;
