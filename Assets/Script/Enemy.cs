@@ -92,10 +92,12 @@ public class Enemy : MonoBehaviour
         {
             //DAMAGE TO CAR
             move = false;
+            other.gameObject.GetComponent<Animator>().SetTrigger("explode");
 
             if (other.gameObject.GetComponent<ColliderController>().spot.status != Spot.Status.level1)
             {
                 other.gameObject.GetComponent<ColliderController>().spot.status--;
+                
                 RepairingController.Get().SelectLevel(other.gameObject.GetComponent<ColliderController>().spot);
             }
 
