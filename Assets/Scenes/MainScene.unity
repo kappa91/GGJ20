@@ -963,7 +963,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300020, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
+  m_Sprite: {fileID: 21300020, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1072,7 +1072,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300018, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
+  m_Sprite: {fileID: 21300018, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2736,7 +2736,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300022, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
+  m_Sprite: {fileID: 21300022, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -2968,25 +2968,25 @@ MonoBehaviour:
   - {fileID: 715714317}
   - {fileID: 1942455129}
   carLevel1:
-  - {fileID: 21300022, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300018, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300020, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300022, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
+  - {fileID: 21300022, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300018, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300020, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300022, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
   carLevel2:
-  - {fileID: 21300016, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300012, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300014, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300016, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
+  - {fileID: 21300016, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300012, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300014, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300016, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
   carLevel3:
-  - {fileID: 21300010, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300006, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300008, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300010, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
+  - {fileID: 21300010, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300006, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300008, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300010, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
   carLevel4:
-  - {fileID: 21300004, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300000, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300002, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
-  - {fileID: 21300004, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
+  - {fileID: 21300004, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300000, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300002, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
+  - {fileID: 21300004, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
 --- !u!222 &1930744838
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3075,7 +3075,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300022, guid: d4e409f4e42f042eebaca7a6cd9b2987, type: 3}
+  m_Sprite: {fileID: 21300022, guid: 4737ef1efa94f429b93daca1f879daba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
