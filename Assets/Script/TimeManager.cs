@@ -15,6 +15,7 @@ public class TimeManager : MonoBehaviour
     public bool start = false;
     public GameObject gameOver;
     public bool win = false;
+    public GameObject CarCompleted;
 
     bool isRestarted;
     // Start is called before the first frame update
@@ -81,6 +82,7 @@ public class TimeManager : MonoBehaviour
         }
         else
         {
+            CarCompleted.SetActive(true);
             startanim.SetTrigger("win");
             em.end = true;
             pe.enabled = false;
