@@ -3046,9 +3046,9 @@ MonoBehaviour:
   speedLevel2: 6
   speedLevel3: 5
   buttonNumber: 0
-  buttonNumberLevel1: 5
-  buttonNumberLevel2: 5
-  buttonNumberLevel3: 5
+  buttonNumberLevel1: 2
+  buttonNumberLevel2: 2
+  buttonNumberLevel3: 2
   spawnRate: 0.8
   counterButton: 0
   buttonPrefab: {fileID: 592640281500046241, guid: 9b9e099145d4a41ffbce8aecdb9cca83,
