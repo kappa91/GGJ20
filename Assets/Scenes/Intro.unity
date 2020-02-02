@@ -1213,6 +1213,7 @@ GameObject:
   - component: {fileID: 746705306}
   - component: {fileID: 746705308}
   - component: {fileID: 746705307}
+  - component: {fileID: 746705309}
   m_Layer: 5
   m_Name: MoveText (2)
   m_TagString: Untagged
@@ -1281,6 +1282,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746705305}
   m_CullTransparentMesh: 0
+--- !u!114 &746705309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746705305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d0d732f262243e393ed95fb1308ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &758158556
 GameObject:
   m_ObjectHideFlags: 0
