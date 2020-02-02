@@ -28,6 +28,12 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Restart") && !isRestarted)
+        {
+            isRestarted = true;
+            SceneManager.LoadScene("Intro");
+        }
+
         if (!win)
         {
             if (!start && time > 0.0f && startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
@@ -41,11 +47,7 @@ public class TimeManager : MonoBehaviour
 
             }
 
-            if (Input.GetButtonDown("Restart") && !isRestarted)
-            {
-                isRestarted = true;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+
             if (start)
             {
                 time -= Time.deltaTime;
