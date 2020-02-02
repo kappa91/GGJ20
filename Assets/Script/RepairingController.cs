@@ -94,6 +94,12 @@ public class RepairingController : MonoBehaviour
     public void StopRepair()
     {
         repairingBox.DOScale(0, .2f);
+        if (currentSpot != null)
+        {
+            currentSpot.GetComponent<BoxCollider2D>().enabled = false;
+            currentSpot.GetComponent<BoxCollider2D>().enabled = true;
+        }
+
         CorrectButtonManager.Get().isPlaying = false;
         charaController.lockControl = false;
         if (currentSpot != null)

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CheckFinishAnimation : MonoBehaviour
 {
+    public delegate void OnAnimFinished();
+    public OnAnimFinished onAnimFinishedDelegate;
 
     Animator _anim;
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class CheckFinishAnimation : MonoBehaviour
         if (_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > 0.9f)
         {
             gameObject.SetActive(false);
+            onAnimFinishedDelegate?.Invoke();
         }
     }
 }

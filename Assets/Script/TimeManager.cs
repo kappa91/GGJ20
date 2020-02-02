@@ -15,6 +15,8 @@ public class TimeManager : MonoBehaviour
     public bool start = false;
     public GameObject gameOver;
     public bool win = false;
+
+    bool isRestarted;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class TimeManager : MonoBehaviour
     {
         if (!win)
         {
-            if (!start && time > 0.0f&& startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
+            if (!start && time > 0.0f && startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
             {
                 //start game
                 em.enabled = true;
@@ -38,8 +40,9 @@ public class TimeManager : MonoBehaviour
 
             }
 
-            if (Input.GetButtonDown("Restart"))
+            if (Input.GetButtonDown("Restart") && !isRestarted)
             {
+                isRestarted = true;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             if (start)
@@ -47,16 +50,28 @@ public class TimeManager : MonoBehaviour
                 time -= Time.deltaTime;
                 text.text = ((int)time).ToString();
                 //Debug.Log((int)time);
+
+
+                if (time <= 20)
+                {
+                    text.color = Color.red;
+                }
+                else if (time <= 60)
+                {
+                    text.color = new Color(0.8867924f, 0.5007113f, 0.1547704f);
+                }
+
                 if (time <= 0.0f)
                 {
                     start = false;
                     em.end = true;
                     pe.enabled = false;
                     //startanim.SetTrigger("win");
-                    
+
                     //gameOver.gameObject.transform.DOScale(Vector3.one, 3.0f);
-                    gameOver.gameObject.transform.DOScale(new Vector3(1,0.01f,0), 1f).OnComplete(delegate {
-                        gameOver.gameObject.transform.DOScale(new Vector3(1,1,0), 1f);
+                    gameOver.gameObject.transform.DOScale(new Vector3(1, 0.01f, 0), 1f).OnComplete(delegate
+                    {
+                        gameOver.gameObject.transform.DOScale(new Vector3(1, 1, 0), 1f);
                     });
 
                 }
@@ -67,8 +82,8 @@ public class TimeManager : MonoBehaviour
         else
         {
             startanim.SetTrigger("win");
-             em.end = true;
-                    pe.enabled = false;
+            em.end = true;
+            pe.enabled = false;
         }
     }
 }

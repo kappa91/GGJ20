@@ -42,6 +42,16 @@ public class CorrectButtonManager : MonoBehaviour
 
     #endregion
 
+    private void Start()
+    {
+        wrongFeedback.GetComponent<CheckFinishAnimation>().onAnimFinishedDelegate += Exit;
+    }
+
+    private void Exit()
+    {
+        GameManager.Get().RepairExit();
+    }
+
     public void OnButtonEnter(ButtonInfo buttonInfo)
     {
         currentButton = buttonInfo;
@@ -61,7 +71,6 @@ public class CorrectButtonManager : MonoBehaviour
             }
             else if (Input.anyKeyDown)
             {
-                GameManager.Get().RepairExit();
                 wrongFeedback.SetActive(true);
             }
         }
