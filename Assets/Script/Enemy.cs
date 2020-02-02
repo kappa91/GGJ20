@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         }
 
         if(anim.GetCurrentAnimatorStateInfo(0).IsName("done")){
-Destroy(gameObject);
+            Destroy(gameObject);
         }
 
     }

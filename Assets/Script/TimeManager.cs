@@ -22,13 +22,13 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startanim != null && startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
+        if (!start && startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
         {
             //start game
             em.enabled = true;
             pe.enabled = true;
             //Destroy(startanim.gameObject);
-            startanim = null;
+            //startanim = null;
             start = true;
 
         }
@@ -42,7 +42,7 @@ public class TimeManager : MonoBehaviour
             time -= Time.deltaTime;
             text.text = ((int)time).ToString();
             Debug.Log((int)time);
-            if (time < 0.0f)
+            if (time <= 0.0f)
             {
                 start = false;
                 em.enabled = false;
