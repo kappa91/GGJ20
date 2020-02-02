@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TimeManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class TimeManager : MonoBehaviour
     public Text text;
     public bool start = false;
     public GameObject gameOver;
+    public bool win = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,36 +25,43 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!start && startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
+        if (!win)
         {
-            //start game
-            em.enabled = true;
-            pe.enabled = true;
-            //Destroy(startanim.gameObject);
-            //startanim = null;
-            start = true;
-
-        }
-
-        if (Input.GetButtonDown("Restart"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        if (start)
-        {
-            time -= Time.deltaTime;
-            text.text = ((int)time).ToString();
-            Debug.Log((int)time);
-            if (time <= 0.0f)
+            if (!start && startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
             {
-                start = false;
-                em.enabled = false;
-                pe.enabled = false;
-                startanim.SetTrigger("win");
-                
+                //start game
+                em.enabled = true;
+                pe.enabled = true;
+                //Destroy(startanim.gameObject);
+                //startanim = null;
+                start = true;
+
             }
 
+            if (Input.GetButtonDown("Restart"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            if (start)
+            {
+                time -= Time.deltaTime;
+                text.text = ((int)time).ToString();
+                Debug.Log((int)time);
+                if (time <= 0.0f)
+                {
+                    start = false;
+                    em.enabled = false;
+                    pe.enabled = false;
+                    //startanim.SetTrigger("win");
+                    gameOver.gameObject.transform.DOScale(Vector3.one, 3.0f);
 
+                }
+
+
+            }
+        }
+        else{
+            startanim.SetTrigger("win");
         }
     }
 }
