@@ -12,6 +12,7 @@ public class TimeManager : MonoBehaviour
     public float time;
     public Text text;
     public bool start = false;
+    public GameObject gameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +49,7 @@ public class TimeManager : MonoBehaviour
                 em.enabled = false;
                 pe.enabled = false;
                 startanim.SetTrigger("win");
+                
             }
 
 

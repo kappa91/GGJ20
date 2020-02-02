@@ -207,6 +207,7 @@ MonoBehaviour:
   time: 10
   text: {fileID: 476569239}
   start: 0
+  gameOver: {fileID: 0}
 --- !u!1 &78442477
 GameObject:
   m_ObjectHideFlags: 0
