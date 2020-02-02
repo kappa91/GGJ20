@@ -96,8 +96,8 @@ public class RepairingController : MonoBehaviour
         repairingBox.DOScale(0, .2f);
         if (currentSpot != null)
         {
-            currentSpot.GetComponent<BoxCollider2D>().enabled = false;
-            currentSpot.GetComponent<BoxCollider2D>().enabled = true;
+            currentSpot.GetComponent<BoxCollider2D>().isTrigger = false;
+            currentSpot.GetComponent<BoxCollider2D>().isTrigger = true;
         }
 
         CorrectButtonManager.Get().isPlaying = false;
