@@ -111,7 +111,6 @@ public class RepairingController : MonoBehaviour
         int buttonSpawned = 1;
         while (currentSpot.isRepairing)
         {
-            Debug.Log(counterButton);
             if (counterButton == buttonNumber)
             {
                 counterButton = 0;
@@ -135,13 +134,7 @@ public class RepairingController : MonoBehaviour
     void SpawnButton()
     {
         GameObject buttonRepair = GameObject.Instantiate(buttonPrefab, spawnPoint);
-        buttonRepair.GetComponent<ButtonInfo>().ButtonSetup(buttonNumberCode[Random.Range(0, buttonNumberCode.Length)]);
-        buttonRepair.GetComponent<RectTransform>().DOLocalMoveX(400, speed).OnComplete(
-            () =>
-            {
-                Destroy(buttonRepair);
-            }
-            );
+        buttonRepair.GetComponent<ButtonInfo>().ButtonSetup(buttonNumberCode[Random.Range(0, buttonNumberCode.Length)], speed);
     }
 
     public void SelectLevel(Spot spot)

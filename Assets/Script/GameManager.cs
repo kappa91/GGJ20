@@ -67,6 +67,15 @@ public class GameManager : MonoBehaviour
         canRepair = false;
     }
 
+    public void RepairEnd()
+    {
+        Debug.Log("Repair Ended");
+        _anim.SetTrigger("repairingDone");
+
+        repairController.StopRepair();
+        canRepair = false;
+    }
+
     public bool isAttack;
 
     private void Update()

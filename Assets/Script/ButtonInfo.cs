@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ButtonInfo : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class ButtonInfo : MonoBehaviour
     bool isEntered;
     public Sprite[] buttonSprites;
 
+    public Tween tween;
+
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
@@ -19,7 +22,7 @@ public class ButtonInfo : MonoBehaviour
         spriteRenderer = GetComponent<Image>();
     }
 
-    public void ButtonSetup(string button)
+    public void ButtonSetup(string button, float speed)
     {
         buttonNumber = button;
 
@@ -51,6 +54,13 @@ public class ButtonInfo : MonoBehaviour
                 //txt.text = "RB";
                 break;
         }
+
+        tween = GetComponent<RectTransform>().DOLocalMoveX(400, speed).SetId("thisTween").OnComplete(
+     () =>
+     {
+         Destroy(gameObject);
+     }
+     );
     }
 
     private void Update()
@@ -63,7 +73,7 @@ public class ButtonInfo : MonoBehaviour
                 isEntered = true;
             }
         }
-        else if (rect.localPosition.x > 165)
+        else if (rect.localPosition.x > 166)
         {
             CorrectButtonManager.Get().OnButtonExit();
         }
