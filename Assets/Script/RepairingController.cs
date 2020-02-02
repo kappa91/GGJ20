@@ -36,6 +36,7 @@ public class RepairingController : MonoBehaviour
     public delegate void OnSpotDone();
     public OnSpotDone onSpotDoneDelegate;
 
+    public AudioClip correctSound, spotCompleted;
 
     #region Singleton
 
@@ -80,6 +81,7 @@ public class RepairingController : MonoBehaviour
     void CorrectButton()
     {
         counterButton++;
+        StartCoroutine(AudioManager.Get().PlayIndependentSoundClipRoutine(correctSound));
     }
 
     public void StartRepair()
@@ -125,6 +127,8 @@ public class RepairingController : MonoBehaviour
                 currentSpot.status++;
                 SelectLevel(currentSpot);
                 buttonSpawned = 0;
+                StartCoroutine(AudioManager.Get().PlayIndependentSoundClipRoutine(spotCompleted));
+
             }
             timer += Time.deltaTime;
             if (timer > spawnRate && buttonSpawned < buttonNumber)

@@ -12,6 +12,8 @@ public class CorrectButtonManager : MonoBehaviour
 
     public GameObject correctFeedback, wrongFeedback;
 
+    public AudioClip wrongSound;
+
     #region Singleton
 
     public static CorrectButtonManager _thisInstance;
@@ -72,6 +74,7 @@ public class CorrectButtonManager : MonoBehaviour
             else if (Input.anyKeyDown)
             {
                 wrongFeedback.SetActive(true);
+                StartCoroutine(AudioManager.Get().PlayIndependentSoundClipRoutine(wrongSound));
             }
         }
     }
