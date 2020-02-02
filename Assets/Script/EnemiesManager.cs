@@ -7,6 +7,7 @@ public class EnemiesManager : MonoBehaviour
     public Transform[] positions;
     public float spawnTime;
     public GameObject enemyPrefab;
+    public bool end = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +21,13 @@ StartCoroutine(WaitAndSpawn());
 
     public IEnumerator WaitAndSpawn()
     {
-        while (true)
+        while (!end)
         {
             yield return new WaitForSeconds(spawnTime);
             Transform SelectedPosition = positions[Random.Range(0, positions.Length)];
             GameObject lol =Instantiate(enemyPrefab);
             lol.transform.position =SelectedPosition.position;
+            lol.GetComponent<Enemy>().em = this;
         }
     }
 }

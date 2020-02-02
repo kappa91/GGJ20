@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private bool move = true;
     bool isDead;
     public Animator anim;
+    public EnemiesManager em;
 
 
 
@@ -29,6 +30,10 @@ public class Enemy : MonoBehaviour
         if(anim.GetCurrentAnimatorStateInfo(0).IsName("done")){
             Destroy(gameObject);
         }
+        if(em != null && em.end){
+            anim.SetTrigger("die");
+            StartCoroutine(WaitToDestroy());
+        }
 
     }
 
@@ -47,8 +52,9 @@ public class Enemy : MonoBehaviour
                 if (GameManager.Get().isAttack)
                 {
                     isDead = true;
-                    //StartCoroutine(WaitToDestroy());
+                    
                     anim.SetTrigger("die");
+                    StartCoroutine(WaitToDestroy());
                 }
             }
         }
@@ -56,7 +62,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator WaitToDestroy()
     {
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.35f);
         Destroy(gameObject);
     }
 
@@ -76,6 +82,7 @@ public class Enemy : MonoBehaviour
                 if (GameManager.Get().isAttack)
                 {
                     isDead = true;
+                    anim.SetTrigger("die");
                     StartCoroutine(WaitToDestroy());
                 }
             }

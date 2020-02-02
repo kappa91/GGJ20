@@ -27,7 +27,7 @@ public class TimeManager : MonoBehaviour
     {
         if (!win)
         {
-            if (!start && startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
+            if (!start && time > 0.0f&& startanim.GetCurrentAnimatorStateInfo(0).IsName("done"))
             {
                 //start game
                 em.enabled = true;
@@ -50,10 +50,14 @@ public class TimeManager : MonoBehaviour
                 if (time <= 0.0f)
                 {
                     start = false;
-                    em.enabled = false;
+                    em.end = true;
                     pe.enabled = false;
                     //startanim.SetTrigger("win");
-                    gameOver.gameObject.transform.DOScale(Vector3.one, 3.0f);
+                    
+                    //gameOver.gameObject.transform.DOScale(Vector3.one, 3.0f);
+                    gameOver.gameObject.transform.DOScale(new Vector3(1,0.01f,0), 1f).OnComplete(delegate {
+                        gameOver.gameObject.transform.DOScale(new Vector3(1,1,0), 1f);
+                    });
 
                 }
 
@@ -62,6 +66,8 @@ public class TimeManager : MonoBehaviour
         }
         else{
             startanim.SetTrigger("win");
+             em.end = true;
+                    pe.enabled = false;
         }
     }
 }
