@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
     public float time;
     private bool move = true;
     bool isDead;
+    public Animator anim;
+
+
 
     // Update is called once per frame
     void Update()
@@ -21,6 +24,10 @@ public class Enemy : MonoBehaviour
         else
         {
             this.transform.DOMoveY(this.transform.position.y, 0.0f);
+        }
+
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("done")){
+Destroy(gameObject);
         }
 
     }
@@ -40,7 +47,8 @@ public class Enemy : MonoBehaviour
                 if (GameManager.Get().isAttack)
                 {
                     isDead = true;
-                    StartCoroutine(WaitToDestroy());
+                    //StartCoroutine(WaitToDestroy());
+                    anim.SetTrigger("die");
                 }
             }
         }

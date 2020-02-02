@@ -27,7 +27,7 @@ public class TimeManager : MonoBehaviour
             //start game
             em.enabled = true;
             pe.enabled = true;
-            Destroy(startanim.gameObject);
+            //Destroy(startanim.gameObject);
             startanim = null;
             start = true;
 
@@ -47,6 +47,7 @@ public class TimeManager : MonoBehaviour
                 start = false;
                 em.enabled = false;
                 pe.enabled = false;
+                startanim.SetTrigger("win");
             }
 
 

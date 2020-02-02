@@ -204,7 +204,7 @@ MonoBehaviour:
   startanim: {fileID: 1162403984}
   em: {fileID: 52886657}
   pe: {fileID: 642838742}
-  time: 60
+  time: 10
   text: {fileID: 476569239}
   start: 0
 --- !u!1 &78442477
@@ -1254,7 +1254,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 955c0c4410e7e445aa60afa61bc3c38d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78846f61e819e434aae309cc4e1d58fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1532,7 +1532,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 512ef495e1a2c473eb31a4f6e1255005, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
