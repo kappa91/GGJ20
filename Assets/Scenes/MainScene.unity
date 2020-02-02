@@ -206,7 +206,7 @@ MonoBehaviour:
   startanim: {fileID: 1162403984}
   em: {fileID: 52886657}
   pe: {fileID: 642838742}
-  time: 60
+  time: 120
   text: {fileID: 476569239}
   start: 0
   gameOver: {fileID: 953313898}
@@ -456,7 +456,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 60
+  m_Text: 120
 --- !u!222 &476569240
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1156,6 +1156,7 @@ MonoBehaviour:
   isRepairing: 0
   status: 0
   spotNumber: 3
+  animator: {fileID: 1248039944}
 --- !u!1 &953313898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1561,7 @@ MonoBehaviour:
   isRepairing: 0
   status: 0
   spotNumber: 0
+  animator: {fileID: 1430328479}
 --- !u!1 &1162403983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,6 +2820,7 @@ MonoBehaviour:
   isRepairing: 0
   status: 0
   spotNumber: 1
+  animator: {fileID: 1506345429}
 --- !u!1 &1736951949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,6 +3159,7 @@ MonoBehaviour:
   isRepairing: 0
   status: 0
   spotNumber: 2
+  animator: {fileID: 1430916897}
 --- !u!212 &1960728725
 SpriteRenderer:
   m_ObjectHideFlags: 0

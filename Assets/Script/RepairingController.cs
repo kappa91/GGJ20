@@ -36,6 +36,7 @@ public class RepairingController : MonoBehaviour
     public delegate void OnSpotDone();
     public OnSpotDone onSpotDoneDelegate;
 
+
     #region Singleton
 
     public static RepairingController _thisInstance;
@@ -113,6 +114,7 @@ public class RepairingController : MonoBehaviour
         {
             if (counterButton == buttonNumber)
             {
+                currentSpot.animator.SetTrigger("fix");
                 counterButton = 0;
                 currentSpot.status++;
                 SelectLevel(currentSpot);
