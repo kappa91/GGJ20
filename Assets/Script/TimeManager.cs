@@ -16,9 +16,49 @@ public class TimeManager : MonoBehaviour
     public GameObject gameOver;
     public bool win = false;
     public GameObject CarCompleted;
-
+    public RectTransform secondsAdd;
     bool isRestarted;
     // Start is called before the first frame update
+    #region Singleton
+
+    public static TimeManager _thisInstance;
+
+    public static TimeManager Get()
+    {
+        if (_thisInstance == null)
+        {
+            GameObject newGameObject = new GameObject("TimeManager");
+            _thisInstance = newGameObject.AddComponent<TimeManager>();
+        }
+
+        return _thisInstance;
+    }
+
+    void Awake()
+    {
+        if (_thisInstance == null)
+        {
+            _thisInstance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
+    }
+
+    #endregion
+
+    public void AddSeconds()
+    {
+        time += 2;
+        secondsAdd.DOScaleY(1, .25f).OnComplete(() =>
+        {
+
+            secondsAdd.DOScaleY(0, .25f).SetDelay(.5f);
+        });
+    }
+
     void Start()
     {
         em.enabled = false;

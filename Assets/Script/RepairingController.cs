@@ -80,7 +80,7 @@ public class RepairingController : MonoBehaviour
 
     void CorrectButton()
     {
-        counterButton++;
+        currentSpot.currentButtonCounter++;
         StartCoroutine(AudioManager.Get().PlayIndependentSoundClipRoutine(correctSound));
     }
 
@@ -116,14 +116,14 @@ public class RepairingController : MonoBehaviour
     {
         timer = 0;
         SpawnButton();
-        counterButton = 0;
+        //counterButton = 0;
         int buttonSpawned = 1;
         while (currentSpot.isRepairing)
         {
-            if (counterButton == buttonNumber)
+            if (currentSpot.currentButtonCounter == buttonNumber)
             {
                 currentSpot.animator.SetTrigger("fix");
-                counterButton = 0;
+                currentSpot.currentButtonCounter = 0;
                 currentSpot.status++;
                 SelectLevel(currentSpot);
                 buttonSpawned = 0;

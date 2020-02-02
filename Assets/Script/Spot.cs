@@ -17,6 +17,8 @@ public class Spot : MonoBehaviour
     public GameObject arrow;
     bool arrowEnabled = true;
 
+    public int currentButtonCounter;
+
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
