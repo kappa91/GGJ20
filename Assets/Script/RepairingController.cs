@@ -159,21 +159,25 @@ public class RepairingController : MonoBehaviour
                 speed = speedLevel1;
                 buttonNumber = buttonNumberLevel1;
                 ChangeSpriteCar(spot.spotNumber, carLevel1[spot.spotNumber]);
+                spot.arrow.SetActive(true);
                 break;
             case Spot.Status.level2:
                 speed = speedLevel2;
                 buttonNumber = buttonNumberLevel2;
                 ChangeSpriteCar(spot.spotNumber, carLevel2[spot.spotNumber]);
+                spot.arrow.SetActive(true);
                 break;
             case Spot.Status.level3:
                 speed = speedLevel3;
                 buttonNumber = buttonNumberLevel3;
                 ChangeSpriteCar(spot.spotNumber, carLevel3[spot.spotNumber]);
+                spot.arrow.SetActive(true);
                 break;
             case Spot.Status.done:
                 GameManager.Get().RepairExit();
                 ChangeSpriteCar(spot.spotNumber, carLevel4[spot.spotNumber]);
                 onSpotDoneDelegate?.Invoke();
+                spot.arrow.SetActive(false);
                 break;
         }
     }

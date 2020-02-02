@@ -14,6 +14,10 @@ public class Spot : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject arrow;
+    bool arrowEnabled = true;
+
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
