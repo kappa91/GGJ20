@@ -20,9 +20,9 @@ public class lampeggia : MonoBehaviour
     IEnumerator lol(){
         while(true){
         yield return new WaitForSeconds(.35f);
-        this.gameObject.GetComponent<Text>().enabled=false;
+        this.gameObject.GetComponent<Image>().enabled=false;
         yield return new WaitForSeconds(.35f);
-        this.gameObject.GetComponent<Text>().enabled=true;
+        this.gameObject.GetComponent<Image>().enabled=true;
         }
     } 
 }
