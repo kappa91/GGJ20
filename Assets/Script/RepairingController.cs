@@ -33,6 +33,9 @@ public class RepairingController : MonoBehaviour
     public Sprite[] carLevel3;
     public Sprite[] carLevel4;
 
+    public delegate void OnSpotDone();
+    public OnSpotDone onSpotDoneDelegate;
+
     #region Singleton
 
     public static RepairingController _thisInstance;
@@ -105,19 +108,23 @@ public class RepairingController : MonoBehaviour
         timer = 0;
         SpawnButton();
         counterButton = 0;
+        int buttonSpawned = 1;
         while (currentSpot.isRepairing)
         {
+            Debug.Log(counterButton);
             if (counterButton == buttonNumber)
             {
                 counterButton = 0;
                 currentSpot.status++;
                 SelectLevel(currentSpot);
+                buttonSpawned = 0;
             }
             timer += Time.deltaTime;
-            if (timer > spawnRate)
+            if (timer > spawnRate && buttonSpawned < buttonNumber)
             {
                 timer = 0;
                 SpawnButton();
+                buttonSpawned++;
             }
             yield return null;
         }
@@ -159,6 +166,7 @@ public class RepairingController : MonoBehaviour
             case Spot.Status.done:
                 GameManager.Get().RepairExit();
                 ChangeSpriteCar(spot.spotNumber, carLevel4[spot.spotNumber]);
+                onSpotDoneDelegate?.Invoke();
                 break;
         }
     }

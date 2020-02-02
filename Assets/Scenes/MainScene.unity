@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 52886655}
   - component: {fileID: 52886657}
   - component: {fileID: 52886658}
+  - component: {fileID: 52886659}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -204,10 +205,29 @@ MonoBehaviour:
   startanim: {fileID: 1162403984}
   em: {fileID: 52886657}
   pe: {fileID: 642838742}
-  time: 10
+  time: 60
   text: {fileID: 476569239}
   start: 0
   gameOver: {fileID: 953313898}
+  win: 0
+--- !u!114 &52886659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52886654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d82484f549b04b4d82271bf077699c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spots:
+  - {fileID: 1119154506}
+  - {fileID: 1640547285}
+  - {fileID: 1952316773}
+  - {fileID: 837169990}
+  timeManager: {fileID: 52886658}
 --- !u!1 &78442477
 GameObject:
   m_ObjectHideFlags: 0

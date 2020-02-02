@@ -46,7 +46,7 @@ public class TimeManager : MonoBehaviour
             {
                 time -= Time.deltaTime;
                 text.text = ((int)time).ToString();
-                Debug.Log((int)time);
+                //Debug.Log((int)time);
                 if (time <= 0.0f)
                 {
                     start = false;
@@ -64,7 +64,8 @@ public class TimeManager : MonoBehaviour
 
             }
         }
-        else{
+        else
+        {
             startanim.SetTrigger("win");
              em.end = true;
                     pe.enabled = false;

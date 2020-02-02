@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+
     public void ButtonCorrect()
     {
         _anim.SetTrigger("correctButtonTrigger");
