@@ -136,7 +136,13 @@ public class RepairingController : MonoBehaviour
     void SpawnButton()
     {
         GameObject buttonRepair = GameObject.Instantiate(buttonPrefab, spawnPoint);
-        buttonRepair.GetComponent<ButtonInfo>().ButtonSetup(buttonNumberCode[Random.Range(0, buttonNumberCode.Length)], speed);
+        buttonRepair.GetComponent<ButtonInfo>().ButtonSetup(buttonNumberCode[Random.Range(0, buttonNumberCode.Length)]);
+        buttonRepair.GetComponent<RectTransform>().DOLocalMoveX(400, speed).OnComplete(
+    () =>
+    {
+        Destroy(gameObject);
+    }
+    );
     }
 
     public void SelectLevel(Spot spot)

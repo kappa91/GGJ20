@@ -13,8 +13,6 @@ public class ButtonInfo : MonoBehaviour
     bool isEntered;
     public Sprite[] buttonSprites;
 
-    public Tween tween;
-
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
@@ -22,7 +20,7 @@ public class ButtonInfo : MonoBehaviour
         spriteRenderer = GetComponent<Image>();
     }
 
-    public void ButtonSetup(string button, float speed)
+    public void ButtonSetup(string button)
     {
         buttonNumber = button;
 
@@ -55,12 +53,6 @@ public class ButtonInfo : MonoBehaviour
                 break;
         }
 
-        tween = GetComponent<RectTransform>().DOLocalMoveX(400, speed).SetId("thisTween").OnComplete(
-     () =>
-     {
-         Destroy(gameObject);
-     }
-     );
     }
 
     private void Update()
@@ -73,7 +65,7 @@ public class ButtonInfo : MonoBehaviour
                 isEntered = true;
             }
         }
-        else if (rect.localPosition.x > 166)
+        else if (rect.localPosition.x > 167)
         {
             CorrectButtonManager.Get().OnButtonExit();
         }

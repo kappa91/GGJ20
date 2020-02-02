@@ -54,7 +54,6 @@ public class CorrectButtonManager : MonoBehaviour
         {
             if (currentButton != null && Input.GetButtonDown(currentButton.buttonNumber))
             {
-                currentButton.tween.Kill();
                 Destroy(currentButton.gameObject);
                 currentButton = null;
                 onCorrectButtonDelegate?.Invoke();
@@ -70,7 +69,6 @@ public class CorrectButtonManager : MonoBehaviour
 
     public void OnButtonExit()
     {
-        currentButton.tween.Kill();
         GameManager.Get().RepairExit();
     }
 }
