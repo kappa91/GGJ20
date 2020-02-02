@@ -116,6 +116,9 @@ MonoBehaviour:
   moveY: 10
   time: 180
   anim: {fileID: 2715747080452347987}
+  em: {fileID: 0}
+  enemyDestroyedSound: {fileID: 8300000, guid: e17cbe9bd56774031b10b75d7b5bf3fa, type: 3}
+  carDestroyedSound: {fileID: 8300000, guid: 3a13071b9673642dda1dbf58f9bcef42, type: 3}
 --- !u!61 &2715747080452347991
 BoxCollider2D:
   m_ObjectHideFlags: 0

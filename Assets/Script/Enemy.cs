@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     bool isDead;
     public Animator anim;
     public EnemiesManager em;
+    public AudioClip enemyDestroyedSound, carDestroyedSound;
 
 
 
@@ -27,10 +28,12 @@ public class Enemy : MonoBehaviour
             this.transform.DOMoveY(this.transform.position.y, 0.0f);
         }
 
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName("done")){
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("done"))
+        {
             Destroy(gameObject);
         }
-        if(em != null && em.end){
+        if (em != null && em.end)
+        {
             anim.SetTrigger("die");
             StartCoroutine(WaitToDestroy());
         }
@@ -52,9 +55,10 @@ public class Enemy : MonoBehaviour
                 if (GameManager.Get().isAttack)
                 {
                     isDead = true;
-                    
+
                     anim.SetTrigger("die");
                     StartCoroutine(WaitToDestroy());
+                    StartCoroutine(AudioManager.Get().PlayIndependentSoundClipRoutine(enemyDestroyedSound));
                 }
             }
         }
@@ -84,6 +88,8 @@ public class Enemy : MonoBehaviour
                     isDead = true;
                     anim.SetTrigger("die");
                     StartCoroutine(WaitToDestroy());
+                    StartCoroutine(AudioManager.Get().PlayIndependentSoundClipRoutine(enemyDestroyedSound));
+
                 }
             }
         }
@@ -97,9 +103,10 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.GetComponent<ColliderController>().spot.status != Spot.Status.level1)
             {
                 other.gameObject.GetComponent<ColliderController>().spot.status--;
-                
+
                 RepairingController.Get().SelectLevel(other.gameObject.GetComponent<ColliderController>().spot);
             }
+            StartCoroutine(AudioManager.Get().PlayIndependentSoundClipRoutine(carDestroyedSound));
 
 
             //animazione e destroy

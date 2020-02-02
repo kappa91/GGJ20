@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int score;
 
     public int currentSpotNumber;
+
+    public AudioClip attackAudio;
     #region Singleton
 
     public static GameManager _thisInstance;
@@ -106,6 +108,7 @@ public class GameManager : MonoBehaviour
                 _anim.SetTrigger("attack");
                 RepairExit();
                 isAttack = true;
+                StartCoroutine(AudioManager.Get().PlayIndependentSoundClipRoutine(attackAudio));
             }
         }
         else if (Input.GetAxisRaw("Attack") == -1)
